@@ -10,7 +10,8 @@ try:
     import torch
     from torch.utils import cpp_extension
 except ImportError:
-    TORCH_AVAILABLE = False
+    subprocess.run([sys.executable, "-m", "pip", "install", "torch"])
+    import torch
     print("[WARNING] Unable to import torch, pre-compiling ops will be disabled.")
 
 
